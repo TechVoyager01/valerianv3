@@ -1,0 +1,30 @@
+for the battle logic the options are yes or no
+> if the user chooses yes then they will start the gameplay
+>> the user will then haven no options to travel to different locations, this keeps the game simple for now.
+>> Everytime the user travels to a area the import random will choose a random number between 1-10,
+    if the numbers is bigger than five there will be a battle, if smaller than five there will be no battle
+    the user can run, flee or fight
+>> if the user defeats 4 enemies they will win and move onto the next chapter
+> all four chapters will end this way and after the last battle in thaemus the user will win the game and claim the artifact.
+
+
+>> how would you make this battle logic work?
+
+
+Todo list:
+Make destinations [ ] # make a class for this
+Make random number generator [x]
+Make battle logic [ ] # if users health is 0 then they lose and start the game again
+Make win logic [ ] # if user defeats 4 enemies they win the game and move on the next chapter
+Make lose logic [ ] # if user health is 0 they lose and start the game again
+Make chapter logic [ ] # if user wins the game they move on to the next chapter
+Make game logic [ ] # if user wins the game they claim the artifact and win the game
+Make class for user [ ] # user will have health, attack, defense, and inventory
+Make class for enemies [ ] # enemies will have health, attack, defense, and inventory # hardcode for now.
+Make class for locations [ ] # locations will have a name, description, and a random number generator
+
+For the next day:
+when defeating a foe make a looting option to take their stuff
+when facing a foe give them a random number to choose a attack on Valrian
+make it so when the first foe is defeated the user can move on to the next foe
+and when all four foes are defeated allow the user to move onto the next chapter
