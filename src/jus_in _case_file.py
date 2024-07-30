@@ -1,104 +1,27 @@
-# this file has all the constate funtions to get the ball rolling
-# like displaying the players optiond etc
-import os, random
-
-from src.utils.player import *
-
-def draw_line():
-    """Function to print a decorative line."""
-    print("xX--------------------------------------Xx")
-
-def clear_terminal():
-    """Function to clear the terminal screen based on the operating system."""
-    if os.name == 'nt':
-        os.system('cls')
-    else:
-        os.system('clear')
-
-def display_game_title_with_lines():
-    """Function to display the game title with decorative lines."""
-    draw_line()
-    display_game_title()
-    draw_line()
-
-def display_story():
-    """Function to display the introductory story of the game."""
-    intro_text = """
-    Welcome, brave adventurer, to the mystical world of Orius!
-    ...
-    Press Enter to begin your adventure...
-    """
-    print(intro_text)
-
-def print_player_stats(player_stats):
-    """Function to print the player's current stats."""
-    print("\nValerian Stats:\n")
-    for key, value in player_stats.items():
-        print(f"{key}: {value}")
-
-def display_choice():
-    """Function to display the main menu choices."""
-    draw_line()
-    print(
-        '\n',
-        'Select an option: \n',
-        '\n',
-        'New Game: 1\n',
-        'Load Game: 2\n',
-        'Save & Exit: 3',
-        '\n',
-    )
-    draw_line()
-
-def load_player_stats(file_path):
-    """Function to load the player's stats from a file."""
-    try:
-        with open(file_path, 'r') as file:
-            for item in file:
-                key = item.split(':')[0].strip()
-                value = item.split(':')[1].strip()
-                player_stats[key] = value
-                print(f"Player stats loaded from {file_path}")
-    except FileNotFoundError:
-        print(f"File not found: {file_path}")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-def save_player_stats(file_path, player_stats):
-    """Function to save the player's stats to a file."""
-    try:
-        with open(file_path, 'w') as file:
-            for key, value in player_stats.items():
-                file.write(f"{key}: {value}\n")
-        print(f"Player stats saved to {file_path}")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-
 # # imports of libraries
 # import os
 # import random
 #
 # # imports of functions
-from src.game_title import display_game_title
+# from game_title import display_game_title
 # from travel import *
 # from src.utils.enemies import *
 # from chapters.chapter import *
 #
-# variables
-gameplay = True
-
-# player stats
-player_stats = {
-    'Health': 100,
-    'Attack': 10,
-    'Defence': 5,
-    'Potion': 3,
-    'Elixir': 1,
-    'Gold': 0,
-    'location': 'Galador',
-}
-
+# # variables
+# gameplay = True
+#
+# # player stats
+# player_stats = {
+#     'Health': 100,
+#     'Attack': 10,
+#     'Defence': 5,
+#     'Potion': 3,
+#     'Elixir': 1,
+#     'Gold': 0,
+#     'location': 'Galador',
+# }
+#
 # # functions
 # def draw_line():
 #     """Function to print a decorative line."""
@@ -353,3 +276,78 @@ player_stats = {
 #     current_chapter += 1
 #     update_player_location(player_stats, current_chapter)
 #     print(f"Your new location is {player_stats['location']}")
+#
+# def galador():
+#     """Function to start the Galador encounter."""
+#     clear_terminal()
+#     print(chapter_1_story)
+#     input('Press ENTER to continue...')
+#     clear_terminal()
+#     battle(chapter_1_enemies, player_stats)
+#
+# def enchanted_forest():
+#     """Function to start the Enchanted Forest encounter."""
+#     clear_terminal()
+#     print(chapter_2_story)
+#     battle(chapter_2_enemies, player_stats)
+#
+# def treacherous_mountains():
+#     """Function to start the Treacherous Mountains encounter."""
+#     clear_terminal()
+#     print(chapter_3_story)
+#     battle(chapter_3_enemies, player_stats)
+#
+# def ruins_of_thaemus():
+#     """Function to start the Ruins of Thaemus encounter."""
+#     clear_terminal()
+#     print(chapter_4_story)
+#     battle(chapter_4_enemies, player_stats)
+#
+# def main_gameplay():
+#     """Main function to handle the gameplay loop."""
+#     global player_stats
+#     player_stats = reset_player_stats()
+#
+#     while gameplay:
+#         clear_terminal()
+#         display_choice()
+#
+#         user_choice = input('>  ')
+#
+#         if user_choice == '1':
+#             draw_line()
+#             print('\nGreat News, Lets get you started.... '
+#                   '\nHere are some basic supplies to get to going on your adventure '
+#                   '\nNot much but it can get you where you need to go for now! \n'
+#                   '\nAnd so the First Chapter Begins..... \n'
+#                   '\nYou are Valerian, a young and curious explorer from Galador. '
+#                   '\nYou must find the hidden artifact of Thaemus to prove yourself worthy of its power. '
+#                   '\nYour journey will take you through dense forests, treacherous mountains, and perilous ruins. '
+#                   '\nAlong the way, you will uncover the true history of Thaemus, meet allies who will aid you, '
+#                   '\nand confront formidable foes who will stop at nothing to protect the secrets of the city. '
+#                   '\nAre you ready to take up the challenge and embark on the quest of a lifetime? \n')
+#             draw_line()
+#
+#             user_choice = input('Press ENTER to continue or NO to SAVE and EXIT> ')
+#
+#             if user_choice.lower() == '':
+#                 draw_line()
+#                 galador()
+#                 break
+#             elif user_choice.lower() == 'no':
+#                 print('Your current game will be saved')
+#                 load_player_stats('load.txt')
+#                 break
+#             break
+#         elif user_choice == '2':
+#             print('Load Game')
+#             break
+#         elif user_choice == '3':
+#             print('Save & Exit')
+#             save_player_stats('save.txt', player_stats)
+#             exit()
+#         elif user_choice == 'exit':
+#             print('Game Over')
+#             break
+#
+# main_gameplay()
