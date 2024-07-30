@@ -1,0 +1,8 @@
+Health: 89
+Attack: 10
+Defence: 5
+Potion: 3
+Elixir: 1
+Gold: 45
+location: Galador
+

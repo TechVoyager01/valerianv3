@@ -5,7 +5,7 @@ import random
 # imports of functions
 from game_title import display_game_title
 from travel import *
-from enemies import *
+from src.utils.enemies import *
 from chapters.chapter import *
 
 # variables
@@ -51,16 +51,17 @@ def display_story():
 
 def print_player_stats(player_stats):
     """Function to print the player's current stats."""
-    print("\nValerian Stats:")
+    print("\nValerian Stats:\n")
     for key, value in player_stats.items():
         print(f"{key}: {value}")
 
 def print_enemy_stats(enemy):
     """Function to print the current enemy's stats."""
-    print("\nEnemy Stats:")
+    print("\nEnemy Stats:\n")
     for key, value in enemy.items():
         if key not in ['id', 'name', 'description', 'appearance', 'abilities', 'weakness', 'location', 'encounter', 'chapter']:
             print(f"{key}: {value}")
+    print('')
 
 def reset_player_stats():
     """Function to reset the player's stats to the initial values."""
@@ -78,21 +79,25 @@ def display_choice():
     """Function to display the main menu choices."""
     draw_line()
     print(
+        '\n',
         'Select an option: \n',
+        '\n',
         'New Game: 1\n',
         'Load Game: 2\n',
         'Save & Exit: 3',
+        '\n',
     )
     draw_line()
 
 def battle_action():
     """Function to display the battle action choices."""
-    print('Battle Action')
+    print('\nBattle Action')
     print(
         '\nAttack: 1',
         '\nDefend: 2',
         '\nUse Potion (20HP): 3',
         '\nUse Elixir (40HP): 4\n',
+        '\nSave & Exit: 5\n',
     )
 
 def display_enemies():
@@ -139,7 +144,7 @@ def battle_option_enemy(enemy):
             print(f"The {enemy['name']} increased their defence to {enemy['Defence']}.")
         elif random_num == 3:
             if enemy['Potion'] > 0:
-                print('Your enemy has chosen to use a potion')
+                print('Your enemy has chosen to use  a potion')
                 enemy['Health'] += 20
                 enemy['Potion'] -= 1
                 print(f"The {enemy['name']} used a potion. They have {enemy['Potion']} potions left.")
@@ -182,6 +187,10 @@ def battle_option_player(player_stats, enemy):
             print("You used an elixir. Your health is now", player_stats['Health'])
         else:
             print("You have no elixirs left!")
+    elif choice == '5':
+        save_player_stats('save.txt', player_stats)
+        print("Game saved. Exiting...")
+        exit()
     else:
         print("Invalid choice. Please select a valid action.")
 
@@ -272,6 +281,8 @@ def galador():
     """Function to start the Galador encounter."""
     clear_terminal()
     print(chapter_1_story)
+    input('Press ENTER to continue...')
+    clear_terminal()
     battle(chapter_1_enemies, player_stats)
 
 def enchanted_forest():
@@ -333,7 +344,8 @@ def main_gameplay():
             break
         elif user_choice == '3':
             print('Save & Exit')
-            break
+            save_player_stats('save.txt', player_stats)
+            exit()
         elif user_choice == 'exit':
             print('Game Over')
             break

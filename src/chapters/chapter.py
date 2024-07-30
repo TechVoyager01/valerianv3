@@ -27,3 +27,42 @@ Valerian finally reaches the ancient and forgotten city of Thaemus.
 He must navigate through the ruins, solve intricate puzzles, and defeat powerful guardians to reach the inner sanctum where the artifact is kept. 
 The final confrontation tests Valerian's resolve and worthiness to obtain the artifact.
 """
+
+class Chapter:
+    def __init__(self, title, description):
+        self.title = title
+        self.description = description
+        self.completed = False
+
+    def start(self):
+        print(f"Starting chapter: {self.title}")
+        print(self.description)
+        # Add logic to start the chapter
+
+    def complete(self):
+        self.completed = True
+        print(f"Chapter {self.title} completed!")
+
+# Example chapters
+chapter_1_story = Chapter(
+    title="Chapter 1: The Beginning",
+    description="You wake up in a mysterious forest with no memory of how you got there..."
+)
+
+chapter_2_story = Chapter(
+    title="Chapter 2: The Journey",
+    description="You decide to venture deeper into the forest, seeking answers..."
+)
+
+chapter_3_story = Chapter(
+    title="Chapter 3: The Encounter",
+    description="You encounter a strange creature that seems to know you..."
+)
+
+chapter_4_story = Chapter(
+    title="Chapter 4: The Revelation",
+    description="The creature reveals a shocking truth about your past..."
+)
+
+# List of all chapters
+chapters = [chapter_1_story, chapter_2_story, chapter_3_story, chapter_4_story]
