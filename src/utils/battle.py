@@ -1,20 +1,12 @@
 # functions to help the battle mechanics
-import os, random
+from src.utils.battle import *
+from src.main_gameplay import *
+from src.utils.display import *
+from src.utils.constants import *
+from src.utils.enemy import *
 
-from src.main_gameplay import main_gameplay
-from src.utils.constants import clear_terminal, save_player_stats
-
-def print_enemy_stats(enemy):
-    """Function to print the current enemy's stats."""
-    print("\nEnemy Stats:\n")
-    for key, value in enemy.items():
-        if key not in ['id', 'name', 'description', 'appearance', 'abilities', 'weakness', 'location', 'encounter', 'chapter']:
-            print(f"{key}: {value}")
-    print('')
-
-def battle_option_enemy(enemy):
+def battle_option_enemy(enemy, player_stats):
     """Function to handle the enemy's battle actions."""
-    global player_stats
     random_num = random.randint(1, 4)
     if enemy['Health'] > 0:
         if random_num == 1:
@@ -78,26 +70,39 @@ def battle_option_player(player_stats, enemy):
     else:
         print("Invalid choice. Please select a valid action.")
 
-def reset_player_stats():
-    """Function to reset the player's stats to the initial values."""
-    return {
-        'Health': 100,
-        'Attack': 10,
-        'Defence': 5,
-        'Potion': 3,
-        'Elixir': 1,
-        'Gold': 0,
-        'location': 'Galador\n',
-    }
+def battle(enemy_list, player_stats):
+    """Function to handle the battle sequence between the player and enemies."""
+    while player_stats['Health'] > 0 and len(enemy_list) > 0:
+        enemy = enemy_list[0]
+        enemy_encounter = enemy["encounter"]
+        draw_line()
+        print(enemy_encounter)
+        draw_line()
+        print('You are at battle with', enemy['name'])
+        draw_line()
 
-# the function to allow save and go back to main menu
-def battle_action():
-    """Function to display the battle action choices."""
-    print('\nBattle Action')
-    print(
-        '\nAttack: 1',
-        '\nDefend: 2',
-        '\nUse Potion (20HP): 3',
-        '\nUse Elixir (40HP): 4\n',
-        '\nSave & Exit: 5\n',
-    )
+        while player_stats['Health'] > 0 and enemy['Health'] > 0:
+            draw_line()
+            print_player_stats(player_stats)
+            draw_line()
+            print_enemy_stats(enemy)
+            draw_line()
+            battle_action()
+            draw_line()
+
+            battle_option_player(player_stats, enemy)
+            battle_option_enemy(enemy, player_stats)
+
+        if player_stats['Health'] <= 0:
+            clear_terminal()
+            print("You have been defeated!")
+            main_gameplay()
+            return
+        elif enemy['Health'] <= 0:
+            clear_terminal()
+            print(f"You have defeated the {enemy['name']}!")
+            player_stats['Gold'] += enemy['Gold']
+            enemy_list.pop(0)
+
+    if len(enemy_list) == 0:
+        print("Congratulations! You have defeated all enemies! \nOnto the next chapter!")

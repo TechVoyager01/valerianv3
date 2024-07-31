@@ -1,9 +1,9 @@
-from src.chapters.chapter import chapter_1_story
-from src.utils import battle
+from src.chapters.chapter import *
+from src.utils.battle import battle
 from src.utils.constants import *
 from src.utils.enemies import chapter_1_enemies
 
-def galador(player_stats):
+def glador(player_stats):
     """Function to start the Galador encounter."""
     clear_terminal()
     print(chapter_1_story.title)

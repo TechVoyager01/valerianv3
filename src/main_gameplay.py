@@ -35,7 +35,7 @@ def main_gameplay():
 
             if user_choice.lower() == '':
                 draw_line()
-                galador(player_stats)
+                glador(player_stats)
                 break
             elif user_choice.lower() == 'no':
                 print('Your current game will be saved')
