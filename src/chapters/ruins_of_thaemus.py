@@ -1,11 +1,15 @@
+from src.battle.battle import *
 from src.chapters.chapter import *
-from src.utils import battle
-from src.utils.player import *
-from src.utils.constants import *
-from src.utils.enemies import chapter_4_enemies
+from src.enemy.enemies import *
+from src.utils.display import *
+from src.utils.clear_terminal import *
 
-def ruins_of_thaemus():
+def ruins_of_thaemus(player_stats, save_player_stats, main_gameplay):
     """Function to start the Ruins of Thaemus encounter."""
     clear_terminal()
-    print(chapter_4_story)
-    battle(chapter_4_enemies, player_stats)
+    print(chapter_4_story.title)
+    print(chapter_4_story.description)
+    draw_line()
+    input('Press ENTER to continue...')
+    clear_terminal()
+    battle(chapter_4_enemies, player_stats, save_player_stats, main_gameplay)

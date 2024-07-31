@@ -1,4 +1,4 @@
-def load_player_stats(file_path):
+def load_player_stats(file_path, player_stats):
     """Function to load the player's stats from a file."""
     try:
         with open(file_path, 'r') as file:

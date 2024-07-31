@@ -1,7 +1,13 @@
 # main gameplay function to handle the gameplay loop
 # imports
 from src.chapters.glador import *
-from src.utils.player import *
+from src.chapters.enchanted_forest import *
+from src.chapters.treacherous_mountains import *
+from src.chapters.ruins_of_thaemus import *
+from src.load_game import load_player_stats
+from src.save_game.save_game import save_player_stats
+from src.player import reset_player_stats
+from src.utils import *
 
 # variables
 gameplay = True
@@ -35,18 +41,19 @@ def main_gameplay():
 
             if user_choice.lower() == '':
                 draw_line()
-                glador(player_stats)
+                glador(player_stats, save_player_stats, main_gameplay)
+                enchanted_forest(player_stats, save_player_stats, main_gameplay)
+                treacherous_mountains(player_stats, save_player_stats, main_gameplay)
+                ruins_of_thaemus(player_stats, save_player_stats, main_gameplay)
                 break
             elif user_choice.lower() == 'no':
                 print('Your current game will be saved')
                 load_player_stats('load.txt')
                 break
             break
-        # still a work in progress
         elif user_choice == '2':
             print('Load Game')
             break
-        # need to update this feature
         elif user_choice == '3':
             print('Save & Exit')
             save_player_stats('save.txt', player_stats)

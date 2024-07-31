@@ -1,5 +1,2 @@
-from src.utils.enemies import *
-from src.utils.constants import *
-from src.utils.enemy import *
-from src.utils.player import *
 from src.utils.display import *
+from src.utils.clear_terminal import *
