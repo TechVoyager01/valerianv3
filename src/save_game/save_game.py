@@ -1,5 +1,5 @@
 def save_player_stats(file_path, player_stats):
-    """Function to save_game the player's stats to a file."""
+    """Function to save the player's stats to a file."""
     try:
         with open(file_path, 'w') as file:
             for key, value in player_stats.items():
