@@ -25,8 +25,8 @@ def battle_option_player(player_stats, enemy, clear_terminal, save_player_stats,
         else:
             print("You have no elixirs left!")
     elif choice == '5':
-        save_player_stats('save.txt', player_stats)
+        save_player_stats('src/save_game/save.txt', player_stats)
         print("Game saved. Exiting...")
-        main_gameplay()
+        exit()
     else:
         print("Invalid choice. Please select a valid action.")

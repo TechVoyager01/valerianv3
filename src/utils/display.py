@@ -70,7 +70,7 @@ def display_choice():
         '\n',
         'New Game: 1\n',
         'Load Game: 2\n',
-        'Save & Exit: 3',
+        "Exit: 3\n",
         '\n',
     )
     draw_line()

@@ -4,13 +4,24 @@ from src.chapters.glador import *
 from src.chapters.enchanted_forest import *
 from src.chapters.treacherous_mountains import *
 from src.chapters.ruins_of_thaemus import *
-from src.load_game import load_player_stats
-from src.save_game.save_game import save_player_stats
-from src.player import reset_player_stats
+from src.load_game.continue_game import *
+from src.save_game.save_game import *
 from src.utils import *
 
 # variables
 gameplay = True
+
+player_stats = {
+        'Health': 100,
+        'Attack': 10,
+        'Defence': 5,
+        'Potion': 3,
+        'Elixir': 1,
+        'Gold': 0,
+        'location': 'Galador\n',
+        'current_chapter': 1,
+        'current_enemy': 0
+    }
 
 def main_gameplay():
 
@@ -23,7 +34,7 @@ def main_gameplay():
         user_choice = input('>  ')
 
         if user_choice == '1':
-            player_stats = reset_player_stats()
+            player_stats = reset_player_stats(player_stats)
             draw_line()
             print('\nGreat News, Lets get you started.... '
                   '\nHere are some basic supplies to get to going on your adventure '
@@ -48,16 +59,17 @@ def main_gameplay():
                 break
             elif user_choice.lower() == 'no':
                 print('Your current game will be saved')
-                load_player_stats('load.txt')
-                break
-            break
+                save_player_stats('src/save_game/save.txt', player_stats)
+                main_gameplay()
         elif user_choice == '2':
-            print('Load Game')
-            break
+            # Load the player stats from a file
+            continue_game()
+            main_gameplay()
         elif user_choice == '3':
-            print('Save & Exit')
-            save_player_stats('save.txt', player_stats)
-            exit()
-        elif user_choice == 'exit':
-            print('Game Over')
+            print('And your outta here!!!!!')
             quit()
+        else:
+            draw_line()
+            print('Invalid choice, please try again')
+            draw_line()
+            main_gameplay()
