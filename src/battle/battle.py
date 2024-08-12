@@ -1,14 +1,15 @@
 # src/battle/battle.py
-from src.player.battle_option_player import *
-from src.enemy.battle_options_enemy import *
-from src.player.reset_player_stats import *
-from src.utils.clear_terminal import *
+from src.player.battle_option_player import battle_option_player
+from src.enemy.battle_options_enemy import battle_option_enemy
+from src.player.reset_player_stats import reset_player_stats
+from src.utils.clear_terminal import clear_terminal
 from src.utils.display import *
 
+# the function needs some touch ups and some more features to be added
 def battle(enemy_list, player_stats, save_player_stats, main_gameplay):
     """Function to handle the battle sequence between the player and enemies."""
-    print(f"Player stats at start of battle: {player_stats}")  # Debugging statement
-    while player_stats['Health'] > 0 and len(enemy_list) > 0:
+    while player_stats['Health'] > 0 and len(enemy_list) > 0: # so the player can play if the health is above 0
+
         enemy = enemy_list[0]
         enemy_encounter = enemy["encounter"]
         draw_line()
@@ -18,12 +19,10 @@ def battle(enemy_list, player_stats, save_player_stats, main_gameplay):
         draw_line()
 
         while player_stats['Health'] > 0 and enemy['Health'] > 0:
-            draw_line()
             print_player_stats(player_stats)
             draw_line()
             print_enemy_stats(enemy)
             draw_line()
-            print('')
             battle_action()
             draw_line()
 
@@ -50,4 +49,5 @@ def battle(enemy_list, player_stats, save_player_stats, main_gameplay):
             enemy_list.pop(0)
 
     if len(enemy_list) == 0:
+        player_stats['current_chapter'] += 1
         print("Congratulations! You have defeated all enemies! \nOnto the next chapter!")

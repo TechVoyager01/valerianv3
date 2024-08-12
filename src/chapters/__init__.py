@@ -7,3 +7,4 @@ from src.chapters.enchanted_forest import *
 from src.chapters.treacherous_mountains import *
 from src.chapters.ruins_of_thaemus import *
 from src.chapters.end_game import *
+from src.chapters.play_chapters import *
