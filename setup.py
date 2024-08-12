@@ -6,8 +6,8 @@ setup(
     description='A text-based adventure game',
     author='TechVoyager01',
     author_email='d.b.lousteau@gmail.com',
-    packages=find_packages(where='src'),
-    package_dir={'': 'src'},
+    packages=find_packages(where='save_game_file'),
+    package_dir={'': 'save_game_file'},
     install_requires=[
         'os',
         'collections',

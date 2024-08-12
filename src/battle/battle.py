@@ -1,4 +1,4 @@
-# src/battle/battle.py
+# save_game_file/battle/battle.py
 from src.player.battle_option_player import battle_option_player
 from src.enemy.battle_options_enemy import battle_option_enemy
 from src.player.reset_player_stats import reset_player_stats
@@ -45,7 +45,7 @@ def battle(enemy_list, player_stats, save_player_stats, main_gameplay):
             player_stats['Potion'] += 1
             player_stats['Elixir'] += 1
             player_stats['current_enemy'] += 1
-            save_player_stats('src/save_game/save.txt', player_stats)
+            save_player_stats('save_game_file/save_game/save.txt', player_stats)
             enemy_list.pop(0)
 
     if len(enemy_list) == 0:

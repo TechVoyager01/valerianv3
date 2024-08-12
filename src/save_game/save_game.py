@@ -1,4 +1,4 @@
-# src/save_game/save_game.py
+# save_game_file/save_game/save_game.py
 import os
 
 def save_player_stats(file_path, player_stats):

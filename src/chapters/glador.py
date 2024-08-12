@@ -1,4 +1,4 @@
-# src/chapters/glador.py
+# save_game_file/chapters/glador.py
 from src.load_game.load_game import load_player_stats
 from src.chapters.chapter import *
 from src.enemy.enemies import *
@@ -15,4 +15,4 @@ def glador(player_stats, save_player_stats, main_gameplay, battle, current_enemy
     clear_terminal()
     battle(chapter_1_enemies, player_stats, save_player_stats, main_gameplay)
     # save game after every chapter is completed
-    save_player_stats('src/save_game/save.txt', player_stats)
+    save_player_stats('save_game_file/save_game/save.txt', player_stats)

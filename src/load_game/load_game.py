@@ -1,4 +1,4 @@
-# src/load_game/load_game.py
+# save_game_file/load_game/load_game.py
 def load_player_stats(file_path):
     """Load player stats from a file."""
     player_stats = {}

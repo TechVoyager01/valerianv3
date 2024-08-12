@@ -1,4 +1,4 @@
-# src/main_gameplay.py
+# save_game_file/main_gameplay.py
 from src.chapters.glador import glador
 from src.chapters.enchanted_forest import enchanted_forest
 from src.chapters.treacherous_mountains import treacherous_mountains
@@ -38,16 +38,16 @@ def main_gameplay():
         if user_choice == '1':
             player_stats = reset_player_stats(player_stats)
             draw_line()
-            # print('\nGreat News, Lets get you started.... '
-            #       '\nHere are some basic supplies to get to going on your adventure '
-            #       '\nNot much but it can get you where you need to go for now! \n'
-            #       '\nAnd so the First Chapter Begins..... \n'
-            #       '\nYou are Valerian, a young and curious explorer from Galador. '
-            #       '\nYou must find the hidden artifact of Thaemus to prove yourself worthy of its power. '
-            #       '\nYour journey will take you through dense forests, treacherous mountains, and perilous ruins. '
-            #       '\nAlong the way, you will uncover the true history of Thaemus, meet allies who will aid you, '
-            #       '\nand confront formidable foes who will stop at nothing to protect the secrets of the city. '
-            #       '\nAre you ready to take up the challenge and embark on the quest of a lifetime? \n')
+            print('\nGreat News, Lets get you started.... '
+                  '\nHere are some basic supplies to get to going on your adventure '
+                  '\nNot much but it can get you where you need to go for now! \n'
+                  '\nAnd so the First Chapter Begins..... \n'
+                  '\nYou are Valerian, a young and curious explorer from Galador. '
+                  '\nYou must find the hidden artifact of Thaemus to prove yourself worthy of its power. '
+                  '\nYour journey will take you through dense forests, treacherous mountains, and perilous ruins. '
+                  '\nAlong the way, you will uncover the true history of Thaemus, meet allies who will aid you, '
+                  '\nand confront formidable foes who will stop at nothing to protect the secrets of the city. '
+                  '\nAre you ready to take up the challenge and embark on the quest of a lifetime? \n')
             print('lets get you started....')
             draw_line()
 
@@ -63,7 +63,7 @@ def main_gameplay():
                 break
             elif user_choice.lower() == 'no':
                 print('Your current game will be saved')
-                save_player_stats('src/save_game/save.txt', player_stats)
+                save_player_stats('save_game_file/save_game/save.txt', player_stats)
                 main_gameplay()
         elif user_choice == '2':
             # temp load game logic follow contiune_ game for more
@@ -72,7 +72,7 @@ def main_gameplay():
             draw_line()
             print(f"Continuing from Chapter: {player_stats['current_chapter']}") # testing statement, currently loading wrong chapter, always loading chapter 1
             if player_stats['current_chapter'] == 1:
-                # insert a new function to play all chapters in sequence (folder src/chapters), save game after each chapter
+                # insert a new function to play all chapters in sequence (folder save_game_file/chapters), save game after each chapter
                 glador(player_stats, save_player_stats, main_gameplay, battle)
                 enchanted_forest(player_stats, save_player_stats, main_gameplay, battle)
                 treacherous_mountains(player_stats, save_player_stats, main_gameplay, battle)
