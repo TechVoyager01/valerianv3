@@ -11,10 +11,11 @@ def ruins_of_thaemus(player_stats, save_player_stats, main_gameplay, current_ene
     """Function to start the ruins of Thaemus encounter."""
     clear_terminal()
     player_stats = load_player_stats('save_game_file/save_game/save.txt')
+    draw_line()
     print(chapter_4_story.title)
     print(chapter_4_story.description)
     draw_line()
-    input('Press ENTER to continue...')
+    input('\nPress ENTER to continue...')
     clear_terminal()
     battle(chapter_4_enemies, player_stats, save_player_stats, main_gameplay)
     end_game()

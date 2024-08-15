@@ -3,12 +3,12 @@ from src.chapters.glador import glador
 from src.chapters.enchanted_forest import enchanted_forest
 from src.chapters.treacherous_mountains import treacherous_mountains
 from src.chapters.ruins_of_thaemus import ruins_of_thaemus
-from src.load_game.continue_game import continue_game
 from src.player import reset_player_stats
 from src.save_game.save_game import save_player_stats
 from src.utils.display import display_choice, draw_line
 from src.utils.clear_terminal import clear_terminal
 from src.battle.battle import battle
+from src.assets.game_title import display_game_title
 
 gameplay = True
 
@@ -30,13 +30,19 @@ def main_gameplay():
     global player_stats
 
     while gameplay:
+        
         clear_terminal()
+        display_game_title()
+        input('You are now playing Valerian and the Quest for Thaemus. Press enter to continue...')
+        clear_terminal()
+        
         display_choice()
 
         user_choice = input('>  ')
 
         if user_choice == '1':
             player_stats = reset_player_stats(player_stats)
+            
             draw_line()
             print('\nGreat News, Lets get you started.... '
                   '\nHere are some basic supplies to get to going on your adventure '
@@ -48,13 +54,12 @@ def main_gameplay():
                   '\nAlong the way, you will uncover the true history of Thaemus, meet allies who will aid you, '
                   '\nand confront formidable foes who will stop at nothing to protect the secrets of the city. '
                   '\nAre you ready to take up the challenge and embark on the quest of a lifetime? \n')
-            print('lets get you started....')
+            print('lets get you started....\n')
             draw_line()
 
-            user_choice = input('Press ENTER to continue or NO to SAVE and EXIT> ')
+            user_choice = input('\nPress ENTER to continue or NO to SAVE and EXIT> ')
 
             if user_choice.lower() == '':
-                draw_line()
                 glador(player_stats, save_player_stats, main_gameplay, battle)
                 enchanted_forest(player_stats, save_player_stats, main_gameplay, battle)
                 treacherous_mountains(player_stats, save_player_stats, main_gameplay, battle)
