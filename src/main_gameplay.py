@@ -9,6 +9,7 @@ from src.utils.display import display_choice, draw_line
 from src.utils.clear_terminal import clear_terminal
 from src.battle.battle import battle
 from src.assets.game_title import display_game_title
+from src.load_game.continue_game import *
 
 gameplay = True
 

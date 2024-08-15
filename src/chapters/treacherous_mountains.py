@@ -11,6 +11,7 @@ def treacherous_mountains(player_stats, save_player_stats, main_gameplay, curren
     clear_terminal()
     player_stats = load_player_stats('save_game_file/save_game/save.txt')
     draw_line()
+    print('')
     print(chapter_3_story.title)
     print(chapter_3_story.description)
     draw_line()

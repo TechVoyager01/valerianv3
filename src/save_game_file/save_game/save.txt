@@ -1,9 +1,9 @@
-Health=191
+Health=23
 Attack=10
-Defence=10
-Potion=4
-Elixir=2
-Gold=30
+Defence=5
+Potion=5
+Elixir=9
+Gold=220
 location=Galador
-current_chapter=1
-current_enemy=2
+current_chapter=3
+current_enemy=8

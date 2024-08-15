@@ -12,6 +12,7 @@ def ruins_of_thaemus(player_stats, save_player_stats, main_gameplay, current_ene
     clear_terminal()
     player_stats = load_player_stats('save_game_file/save_game/save.txt')
     draw_line()
+    print('')
     print(chapter_4_story.title)
     print(chapter_4_story.description)
     draw_line()
