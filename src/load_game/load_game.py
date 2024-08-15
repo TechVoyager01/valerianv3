@@ -1,13 +1,9 @@
-def load_player_stats(file_path, player_stats):
-    """Function to load the player's stats from a file."""
-    try:
-        with open(file_path, 'r') as file:
-            for item in file:
-                key = item.split(':')[0].strip()
-                value = item.split(':')[1].strip()
-                player_stats[key] = value
-                print(f"Player stats loaded from {file_path}")
-    except FileNotFoundError:
-        print(f"File not found: {file_path}")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+# save_game_file/load_game/load_game.py
+def load_player_stats(file_path):
+    """Load player stats from a file."""
+    player_stats = {}
+    with open(file_path, 'r') as file:
+        for line in file:
+            key, value = line.strip().split('=')
+            player_stats[key] = int(value) if value.isdigit() else value
+    return player_stats

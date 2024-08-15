@@ -1,9 +1,11 @@
+# save_game_file/save_game/save_game.py
+import os
+
 def save_player_stats(file_path, player_stats):
-    """Function to save the player's stats to a file."""
-    try:
-        with open(file_path, 'w') as file:
-            for key, value in player_stats.items():
-                file.write(f"{key}: {value}\n")
-        print(f"Player stats saved to {file_path}")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    """Save player stats to a file."""
+    directory = os.path.dirname(file_path)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    with open(file_path, 'w') as file:
+        for key, value in player_stats.items():
+            file.write(f"{key}={value}\n")

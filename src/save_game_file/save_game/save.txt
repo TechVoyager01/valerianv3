@@ -1,0 +1,9 @@
+Health=120
+Attack=10
+Defence=5
+Potion=4
+Elixir=2
+Gold=10
+location=Galador
+current_chapter=1
+current_enemy=1

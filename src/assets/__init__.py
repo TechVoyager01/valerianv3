@@ -1,0 +1,1 @@
+from src.assets.game_title import display_game_title
