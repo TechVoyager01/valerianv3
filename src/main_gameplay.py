@@ -60,15 +60,15 @@ def main_gameplay():
                 treacherous_mountains(player_stats, save_player_stats, main_gameplay, battle)
                 ruins_of_thaemus(player_stats, save_player_stats, main_gameplay, battle)
                 # Add end game text and art here...
-                break
+                main_gameplay()
             elif user_choice.lower() == 'no':
                 print('Your current game will be saved')
                 save_player_stats('save_game_file/save_game/save.txt', player_stats)
                 main_gameplay()
         elif user_choice == '2':
-            # temp load game logic follow contiune_ game for more
+            # temp load game logic follow continue_ game for more
             # Load the player stats from a file before loading up new chapter to continue the game
-            player_stats = continue_game()
+            # player_stats = continue_game()
             draw_line()
             print(f"Continuing from Chapter: {player_stats['current_chapter']}") # testing statement, currently loading wrong chapter, always loading chapter 1
             if player_stats['current_chapter'] == 1:
