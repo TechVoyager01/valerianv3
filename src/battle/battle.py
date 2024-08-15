@@ -20,6 +20,7 @@ def battle(enemy_list, player_stats, save_player_stats, main_gameplay):
 
         while player_stats['Health'] > 0 and enemy['Health'] > 0:
             print_player_stats(player_stats)
+            print('')
             draw_line()
             print_enemy_stats(enemy)
             draw_line()
@@ -39,6 +40,7 @@ def battle(enemy_list, player_stats, save_player_stats, main_gameplay):
         elif enemy['Health'] <= 0:
             clear_terminal()
             # add loot function here in the future
+            draw_line()
             print(f"You have defeated the {enemy['name']}!")
             player_stats['Gold'] += enemy['Gold']
             player_stats['Health'] += 20
