@@ -10,6 +10,7 @@ from src.utils.clear_terminal import clear_terminal
 from src.battle.battle import battle
 from src.assets.game_title import display_game_title
 from src.load_game.load_game import *
+from src.utils.typing_effect import *
 
 gameplay = True
 
@@ -33,7 +34,7 @@ def main_gameplay():
 
         clear_terminal()
         display_game_title()
-        input('You are now playing Valerian and the Quest for Thaemus. Press enter to continue...')
+        typingInput('You are now playing Valerian and the Quest for Thaemus. Press enter to continue...')
         clear_terminal()
 
         display_choice()
@@ -45,7 +46,7 @@ def main_gameplay():
             player_stats = reset_player_stats(player_stats)  # Reset player stats
 
             draw_line()
-            print('\nGreat News, Lets get you started.... '
+            text1 = ('\nGreat News, Lets get you started.... '
                   '\nHere are some basic supplies to get to going on your adventure '
                   '\nNot much but it can get you where you need to go for now! \n'
                   '\nAnd so the First Chapter Begins..... \n'
@@ -55,10 +56,11 @@ def main_gameplay():
                   '\nAlong the way, you will uncover the true history of Thaemus, meet allies who will aid you, '
                   '\nand confront formidable foes who will stop at nothing to protect the secrets of the city. '
                   '\nAre you ready to take up the challenge and embark on the quest of a lifetime? \n')
-            print('lets get you started....\n')
+            typingPrint(text1)
+            typingPrint('lets get you started....\n')
             draw_line()
 
-            user_choice = input('\nPress ENTER to continue or NO to SAVE and EXIT> ')
+            user_choice = typingInput('\nPress ENTER to continue or NO to SAVE and EXIT> ')
 
             if user_choice.lower() == '':
                 glador(player_stats, save_player_stats, main_gameplay, battle)
@@ -68,7 +70,7 @@ def main_gameplay():
                 # Add end game text and art here...
                 main_gameplay()
             elif user_choice.lower() == 'no':
-                print('Your current game will be saved')
+                typingPrint('Your current game will be saved')
                 save_player_stats('save_game_file/save_game/save.txt', player_stats)
                 main_gameplay()
         elif user_choice == '2':
@@ -79,7 +81,7 @@ def main_gameplay():
             draw_line()
             clear_terminal()
             print(f"Continuing from Chapter: {player_stats['current_chapter']}") # testing statement, currently loading wrong chapter, always loading chapter 1
-            input('Press enter to continue....')
+            typingInput('Press enter to continue....')
             if player_stats['current_chapter'] == 1:
                 # insert a new function to play all chapters in sequence (folder save_game_file/chapters), save game after each chapter
                 glador(player_stats, save_player_stats, main_gameplay, battle)
@@ -99,10 +101,10 @@ def main_gameplay():
                 # Add end game text and art here...
             main_gameplay()
         elif user_choice == '3':
-            print('And your outta here!!!!!')
+            typingPrint('And your outta here!!!!!')
             quit()
         else:
             draw_line()
-            print('Invalid choice, please try again')
+            typingPrint('Invalid choice, please try again')
             draw_line()
             main_gameplay()

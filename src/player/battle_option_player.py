@@ -1,5 +1,6 @@
 # this function helps the chosen option from the player to attack or heal, also has the option to exit and save
 from src.utils.display import *
+from src.utils.typing_effect import *
 
 def battle_option_player(player_stats, enemy, clear_terminal, save_player_stats, main_gameplay):
     """Function to handle the player's battle actions."""
@@ -36,8 +37,8 @@ def battle_option_player(player_stats, enemy, clear_terminal, save_player_stats,
     elif choice == '5':
         save_player_stats('save_game_file/save_game/save.txt', player_stats)
         draw_line()
-        print("Game saved. Exiting...")
+        typingPrint("Game saved. Exiting...")
         draw_line()
-        exit()
+        main_gameplay()
     else:
         print("Invalid choice. Please select a valid action.")

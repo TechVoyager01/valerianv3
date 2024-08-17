@@ -1,5 +1,5 @@
+from src.utils.typing_effect import *
 # functions to print/display all the game features, story and stats
-
 # the function to allow save_game and go back to main menu
 def display_story():
     """Function to display the introductory story of the game."""
@@ -8,7 +8,7 @@ def display_story():
     ...
     Press Enter to begin your adventure...
     """
-    print(intro_text)
+    typingPrint(intro_text)
 
 def battle_action():
     """Function to display the battle action choices."""
@@ -62,15 +62,14 @@ def display_game_title_with_lines(gametitle):
     draw_line()
 
 def display_choice():
-    """Function to display the main menu choices."""
-    draw_line()
-    print(
-        '\n',
-        'Select an option: \n',
-        '\n',
-        'New Game: 1\n',
-        'Load Game: 2\n',
-        "Exit: 3\n",
-        '\n',
+    """Display the game choices."""
+    choices = (
+        '\nSelect an option: \n'
+        '\nNew Game: 1\n'
+        'Load Game: 2\n'
+        'Exit: 3\n'
+        '\n'
     )
+    draw_line()
+    typingPrint(choices)
     draw_line()
