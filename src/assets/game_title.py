@@ -1,4 +1,4 @@
-# os is a terminal interaction libtrary
+# os is a terminal interaction library
 import os
 
 def display_game_title(file_path='assets/Game_Title'):

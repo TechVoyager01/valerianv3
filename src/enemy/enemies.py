@@ -69,6 +69,7 @@ enemy_list = [
         "Elixir": 0
     },
 
+
     # Chapter 2: The Path of Trials (Enchanted Forest)
     {
         'id': 5,
