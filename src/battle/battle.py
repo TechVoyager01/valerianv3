@@ -4,6 +4,7 @@ from src.enemy.battle_options_enemy import battle_option_enemy
 from src.player.reset_player_stats import reset_player_stats
 from src.utils.clear_terminal import clear_terminal
 from src.utils.display import *
+from src.utils.typing_effect import *
 
 # the function needs some touch ups and some more features to be added
 def battle(enemy_list, player_stats, save_player_stats, main_gameplay):
@@ -13,9 +14,9 @@ def battle(enemy_list, player_stats, save_player_stats, main_gameplay):
         enemy = enemy_list[0]
         enemy_encounter = enemy["encounter"]
         draw_line()
-        print(enemy_encounter)
+        typingPrint(enemy_encounter)
         draw_line()
-        print('You are at battle with', enemy['name'])
+        typingPrint('You are at battle with', enemy['name'])
         draw_line()
 
         while player_stats['Health'] > 0 and enemy['Health'] > 0:
@@ -32,8 +33,8 @@ def battle(enemy_list, player_stats, save_player_stats, main_gameplay):
 
         if player_stats['Health'] <= 0:
             clear_terminal()
-            print("You have been defeated!")
-            print("Game Over!")
+            typingPrint("You have been defeated!")
+            typingPrint("Game Over!")
             reset_player_stats(player_stats)
             main_gameplay()
             return
@@ -41,7 +42,7 @@ def battle(enemy_list, player_stats, save_player_stats, main_gameplay):
             clear_terminal()
             # add loot function here in the future
             draw_line()
-            print(f"You have defeated the {enemy['name']}!")
+            typingPrint(f"You have defeated the {enemy['name']}!")
             player_stats['Gold'] += enemy['Gold']
             player_stats['Health'] += 20
             player_stats['Potion'] += 1
@@ -52,4 +53,4 @@ def battle(enemy_list, player_stats, save_player_stats, main_gameplay):
 
     if len(enemy_list) == 0:
         player_stats['current_chapter'] += 1
-        print("Congratulations! You have defeated all enemies! \nOnto the next chapter!")
+        typingPrint("Congratulations! You have defeated all enemies! \nOnto the next chapter!")
