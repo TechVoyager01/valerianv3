@@ -1,7 +1,7 @@
-# src/load_game/continue_game.py
+# this function is used to load the player stats from the saved file.
 
 def continue_game():
-    """Load player stats from a save file."""
+
     player_stats = {}
     try:
         with open('src/save_game/save.txt', 'r') as file:
@@ -11,6 +11,8 @@ def continue_game():
                     player_stats[key] = int(value)
                 else:
                     player_stats[key] = value
+
+    # file error handling and resets the player stats if the file is not found.
     except FileNotFoundError:
         print("Save file not found. Starting a new game.")
         player_stats = {

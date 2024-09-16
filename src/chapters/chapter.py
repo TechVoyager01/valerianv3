@@ -1,5 +1,6 @@
-# Storyline
-# making a class so its easier to make new chapter later down the road
+# Storyline for the game and where all chapters are stored.
+
+# making a class so it's easier to make new chapter later down the road
 class Chapter:
     def __init__(self, title, description):
         self.title = title
@@ -15,7 +16,7 @@ class Chapter:
         self.completed = True
         print(f"Chapter {self.title} completed!")
 
-# chapters
+# current chapters that are stored.
 chapter_1_story = Chapter(
     title="Chapter 1: The Call to Adventure",
     description="""
@@ -55,5 +56,5 @@ The final confrontation tests Valerian's resolve and worthiness to obtain the ar
 """
 )
 
-# List of all chapters
+# List of all chapters so that it can be easily accessed and iterated in the game logic.
 chapters = [chapter_1_story, chapter_2_story, chapter_3_story, chapter_4_story]

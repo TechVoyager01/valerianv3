@@ -1,3 +1,5 @@
+# file contains the list of enemies that the player can encounter in the game.
+
 enemy_list = [
     # Chapter 1: The Call to Adventure (Galador and Surrounding Areas)
     {
@@ -281,6 +283,7 @@ enemy_list = [
     }
 ]
 
+# Separate the enemies by chapter for easier access
 chapter_1_enemies = [enemy for enemy in enemy_list if enemy['chapter'] == 1]
 chapter_2_enemies = [enemy for enemy in enemy_list if enemy['chapter'] == 2]
 chapter_3_enemies = [enemy for enemy in enemy_list if enemy['chapter'] == 3]

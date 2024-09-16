@@ -76,3 +76,5 @@ To start the game, run the following command:
 
 
 # Thank you for playing Valerian and the Quest for Thaemus!
+# Readme.md file ends here and needs to be updated with the ASCII art and the game story.
+```

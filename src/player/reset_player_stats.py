@@ -1,4 +1,4 @@
-# src/player/reset_player_stats.py
+# function to reset player stats to initial values
 
 def reset_player_stats(player_stats):
     """Reset player stats to initial values."""

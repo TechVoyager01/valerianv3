@@ -1,8 +1,10 @@
-# save_game_file/save_game/save_game.py
+# Save player stats to a file.
+
+# import os module to create directories
 import os
 
+# save_player_stats function
 def save_player_stats(file_path, player_stats):
-    """Save player stats to a file."""
     directory = os.path.dirname(file_path)
     if not os.path.exists(directory):
         os.makedirs(directory)

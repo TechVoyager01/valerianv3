@@ -1,12 +1,16 @@
 # this function helps the chosen option from the player to attack or heal, also has the option to exit and save
+
+# importing necessary modules
 from src.utils.display import *
 from src.utils.typing_effect import *
 
+# function to handle the player's battle actions
 def battle_option_player(player_stats, enemy, clear_terminal, save_player_stats, main_gameplay):
-    """Function to handle the player's battle actions."""
     choice = input('\nChoose your action: ')
     clear_terminal()
     draw_line()
+
+    # parameters for the player's actions
     if choice == '1':
         print(f"You attack the {enemy['name']}!")
         enemy['Health'] -= player_stats['Attack']

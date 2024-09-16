@@ -1,6 +1,7 @@
-# save_game_file/load_game/load_game.py
+# Load game functions
+
+# load player stats from file.
 def load_player_stats(file_path):
-    """Load player stats from a file."""
     player_stats = {}
     with open(file_path, 'r') as file:
         for line in file:
