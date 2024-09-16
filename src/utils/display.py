@@ -1,8 +1,10 @@
+# This file contains functions to display the game features, story and stats
+
+# import the typing effect function
 from src.utils.typing_effect import *
-# functions to print/display all the game features, story and stats
-# the function to allow save_game and go back to main menu
+
+# the function to print intro to the game.
 def display_story():
-    """Function to display the introductory story of the game."""
     intro_text = """
     Welcome, brave adventurer, to the mystical world of Orius!
     ...
@@ -10,8 +12,8 @@ def display_story():
     """
     typingPrint(intro_text)
 
+# the function to choose the players action in battle.
 def battle_action():
-    """Function to display the battle action choices."""
     print('\nBattle Action')
     print(
         '\nAttack: 1',
@@ -21,8 +23,8 @@ def battle_action():
         '\nSave & Exit: 5\n',
     )
 
+# the function to print the enemy stats
 def print_enemy_stats(enemy):
-    """Function to print the enemy's stats."""
     print(" ")
     print(f"Enemy: {enemy['name']}")
     print(" ")
@@ -33,15 +35,14 @@ def print_enemy_stats(enemy):
     print(f"Elixir: {enemy['Elixir']}")
     print(" ")
 
+# the function prints the player stats
 def print_player_stats(player_stats):
-    """Function to print the player's current stats."""
     print("\nValerian Stats:\n")
     for key, value in player_stats.items():
         print(f"{key}: {value}")
 
 # the function to allow save_game and go back to main menu
 def battle_action():
-    """Function to display the battle action choices."""
     print('\nBattle Action')
     print(
         '\nAttack: 1',
@@ -51,18 +52,18 @@ def battle_action():
         '\nSave & Exit: 5\n',
     )
 
+# the function to print a line of dashes
 def draw_line():
-    """Function to print a decorative line."""
     print("xX--------------------------------------Xx")
 
+# function to print the game title with decorative lines
 def display_game_title_with_lines(gametitle):
-    """Function to display the game title with decorative lines."""
     draw_line()
     print(gametitle)
     draw_line()
 
+# function to display the main menu
 def display_choice():
-    """Display the game choices."""
     choices = (
         '\nSelect an option: \n'
         '\nNew Game: 1\n'

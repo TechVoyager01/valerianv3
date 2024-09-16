@@ -1,4 +1,6 @@
-# save_game_file/main_gameplay.py
+# This file contains the main gameplay loop for the game. It allows the player to start a new game, load a saved game, or exit the game.
+
+# Importing the necessary functions and classes
 from src.chapters.glador import glador
 from src.chapters.enchanted_forest import enchanted_forest
 from src.chapters.treacherous_mountains import treacherous_mountains
@@ -12,9 +14,10 @@ from src.assets.game_title import display_game_title
 from src.load_game.load_game import *
 from src.utils.typing_effect import *
 
+# Global variable to control the gameplay loop
 gameplay = True
 
-
+# Main gameplay loop
 def main_gameplay():
 
     # player stats, health, potions, elixir, gold, location, current chapter, current enemy
@@ -30,6 +33,7 @@ def main_gameplay():
         'current_enemy': 0
     }
 
+    # Main gameplay loop
     while gameplay:
 
         clear_terminal()
@@ -41,10 +45,11 @@ def main_gameplay():
 
         user_choice = input('>  ')
 
+        # Check the user choice
         if user_choice == '1':
 
             player_stats = reset_player_stats(player_stats)  # Reset player stats
-
+            # Save the player stats to a file before starting a new chapter
             draw_line()
             text1 = ('\nGreat News, Lets get you started.... '
                   '\nHere are some basic supplies to get to going on your adventure '
@@ -62,6 +67,7 @@ def main_gameplay():
 
             user_choice = typingInput('\nPress ENTER to continue or NO to SAVE and EXIT> ')
 
+            # Check the user choice
             if user_choice.lower() == '':
                 glador(player_stats, save_player_stats, main_gameplay, battle)
                 enchanted_forest(player_stats, save_player_stats, main_gameplay, battle)

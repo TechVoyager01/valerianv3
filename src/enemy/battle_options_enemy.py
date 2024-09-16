@@ -1,9 +1,16 @@
+# this file contains the function that handles the enemy's battle actions and stats.
+
+# import random as the random module is needed to generate random numbers for the enemy's actions.
 import random
+
+# import the draw_line function from the display module to display a line after each action.
 from src.utils.display import *
 
+# function to handle the enemy's battle actions.
 def battle_option_enemy(enemy, player_stats):
-    """Function to handle the enemy's battle actions."""
+    # initalizing a random number to determine the enemy's action
     random_num = random.randint(1, 4)
+    # parameters on the enemy's action.
     if enemy['Health'] > 0:
         if random_num == 1:
             print('Your enemy has chosen to attack')

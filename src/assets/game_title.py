@@ -1,4 +1,4 @@
-# os is a terminal interaction library
+# function to display the game title
 import os
 
 def display_game_title(file_path='assets/Game_Title'):

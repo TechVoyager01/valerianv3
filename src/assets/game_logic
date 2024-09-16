@@ -1,3 +1,5 @@
+A text file that contains some of the logic and todo lists for the game.
+
 for the battle logic the options are yes or no
 > if the user chooses yes then they will start the gameplay
 >> the user will then haven no options to travel to different locations, this keeps the game simple for now.
@@ -12,19 +14,19 @@ for the battle logic the options are yes or no
 
 
 Todo list:
-Make destinations [ ] # make a class for this
+Make destinations [x] # make a class for this
 Make random number generator [x]
-Make battle logic [ ] # if users health is 0 then they lose and start the game again
-Make win logic [ ] # if user defeats 4 enemies they win the game and move on the next chapter
-Make lose logic [ ] # if user health is 0 they lose and start the game again
-Make chapter logic [ ] # if user wins the game they move on to the next chapter
-Make game logic [ ] # if user wins the game they claim the artifact and win the game
-Make class for user [ ] # user will have health, attack, defense, and inventory
-Make class for enemies [ ] # enemies will have health, attack, defense, and inventory # hardcode for now.
-Make class for locations [ ] # locations will have a name, description, and a random number generator
+Make battle logic [x] # if users health is 0 then they lose and start the game again
+Make win logic [x] # if user defeats 4 enemies they win the game and move on the next chapter
+Make lose logic [x] # if user health is 0 they lose and start the game again
+Make chapter logic [x] # if user wins the game they move on to the next chapter
+Make game logic [x] # if user wins the game they claim the artifact and win the game
+Make class for user [x] # user will have health, attack, defense, and inventory
+Make class for enemies [x] # enemies will have health, attack, defense, and inventory # hardcode for now.
+Make class for locations [x] # locations will have a name, description, and a random number generator
 
 For the next day:
 when defeating a foe make a looting option to take their stuff
-when facing a foe give them a random number to choose a attack on Valrian
+when facing a foe give them a random numbed choose a attack or tn Valrian
 make it so when the first foe is defeated the user can move on to the next foe
 and when all four foes are defeated allow the user to move onto the next chapter

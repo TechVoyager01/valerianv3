@@ -1,4 +1,6 @@
-# save_game_file/chapters/enchanted_forest.py
+# making the enchanted forest encounter a function to be called in the main_gameplay.py file
+
+# the imported functions are from the following files:
 from src.load_game.load_game import load_player_stats
 from src.battle.battle import *
 from src.chapters.chapter import *
@@ -7,6 +9,7 @@ from src.utils.display import *
 from src.utils.clear_terminal import *
 from src.utils.typing_effect import *
 
+# the enchanted forest encounter function
 def enchanted_forest(player_stats, save_player_stats, main_gameplay, current_enemy=0):
     """Function to start the enchanted forest encounter."""
     clear_terminal()
@@ -21,6 +24,4 @@ def enchanted_forest(player_stats, save_player_stats, main_gameplay, current_ene
     battle(chapter_2_enemies, player_stats, save_player_stats, main_gameplay)
     # save game after every chapter is completed
     save_player_stats('save_game_file/save_game/save.txt', player_stats)
-
-
-    # maybe creating a new if else statement to ensure the correct battle on the correct chapter when user loads game.
+# end of enchanted_forest.py file

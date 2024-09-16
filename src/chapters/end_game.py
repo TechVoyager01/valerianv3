@@ -1,3 +1,4 @@
+# could use some work. I'm not sure what the end game should look like yet.
 def end_game():
     print('You have traveled far and wide, faced many challenges, and emerged victorious. '
           '\nYou now have the power of the artifact of Thaemus in your hands, and with it, you can shape the future of the world. '

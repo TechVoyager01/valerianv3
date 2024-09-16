@@ -1,7 +1,1 @@
-# library
-import os
-
-# art
-
-
-# function to display enemy art
+#  This will be a later development where we will create a class that will display and create the enemy art for the game.
